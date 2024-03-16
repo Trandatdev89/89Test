@@ -15,6 +15,7 @@ import Bars from "./Bars";
 function LayoutDefault() {
   const token = getCookie("token");
   const [bars, setBars] = useState(false);
+  const name = getCookie("fullName");
   const handleClick = () => {
     setBars(!bars);
   };
@@ -38,8 +39,8 @@ function LayoutDefault() {
                 <li className="Menu__item">
                   <NavLink to="/topic">Chủ đề</NavLink>
                 </li>
-                <li className="Menu__item"> 
-                   <NavLink to="/usage">Liên hệ</NavLink>
+                <li className="Menu__item">
+                  <NavLink to="/usage">Liên hệ</NavLink>
                 </li>
                 <li className="Menu__item">
                   <NavLink to="/blog">Tin tức</NavLink>
@@ -57,7 +58,7 @@ function LayoutDefault() {
                   <NavLink to="/topic">Chủ đề</NavLink>
                 </li>
                 <li className="Menu__item">
-                   <NavLink to="/usage">Liên hệ</NavLink>
+                  <NavLink to="/usage">Liên hệ</NavLink>
                 </li>
                 <li className="Menu__item">
                   <NavLink to="/blog">Tin tức</NavLink>
@@ -65,22 +66,27 @@ function LayoutDefault() {
               </>
             )}
           </ul>
-          <div className="layoutDefault__icons">
-            {token ? (
-              <Link to="/logout" title="Đăng xuất">
-                <MdLogout />
-              </Link>
-            ) : (
-              <Link to="/login" title="Đăng nhập">
-                <FaUser />
-              </Link>
-            )}
+          <div className="layoutDefault__dat">
+            {token&&(<div className="layoutDefault__name" style={{color:"red"}}>Xin chào: {name}</div>)}            
+            <div className="layoutDefault__icons">
+              {token ? (
+                <>
+                  <Link to="/logout" title="Đăng xuất">
+                    <MdLogout />
+                  </Link>
+                </>
+              ) : (
+                <Link to="/login" title="Đăng nhập">
+                  <FaUser />
+                </Link>
+              )}
+            </div>
           </div>
           <div className="bars" onClick={handleClick}>
             {bars ? <IoMdClose /> : <FaBars />}
           </div>
         </header>
-        {bars ? <Bars setBars={setBars}/> : ""}
+        {bars ? <Bars setBars={setBars} /> : ""}
         <main className="main">
           <Outlet />
         </main>
@@ -104,10 +110,10 @@ function LayoutDefault() {
             <hr />
             <div className="row">
               <div className="col-12">
-                 <div className="footer__contact">
-                    CopyRight 2022-2023 by 89Test.vn
-                 </div>
-              </div>             
+                <div className="footer__contact">
+                  CopyRight 2022-2023 by 89Test.vn
+                </div>
+              </div>
             </div>
           </div>
         </footer>
