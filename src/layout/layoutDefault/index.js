@@ -1,12 +1,8 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../../img/logo.png";
-import { MdEmail } from "react-icons/md";
-import { CiLocationOn } from "react-icons/ci";
-import { IoDocumentText } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import "bootstrap";
 import { MdLogout } from "react-icons/md";
-import { FaPhone } from "react-icons/fa";
 import "./index.scss";
 import "./base.scss";
 import { getCookie } from "../../components/helper/cookie";
