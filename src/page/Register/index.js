@@ -15,16 +15,16 @@ function Register() {
        option.token=token;
        const checkUser=await checkEmail(option.email);
        if(checkUser.length>0){
-        alert("email nay da ton tai!");
+        alert("email này đã tồn tại!");
        }
        else{
            const res= await RegisterUser(option);
            if(res){
-            alert("ban da dang ky thanh cong!");
+            alert("Bạn đã đăng ký thành công!");
             navigate("/login");
            }
            else{
-            alert("dang ky khong thanh cong")
+            alert("Đăng ký không thành công!")
            }
        }
     }

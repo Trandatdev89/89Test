@@ -24,10 +24,11 @@ function Login() {
        setCookie("email",result.email,1);
        setCookie("token",result.token,1);
        dispatch(ReloadUser(true));   //gui len store de render lai header khi dang nhap
+       alert("Chúc mừng bạn đã đăng nhập thành công");
        navigate("/");
     }
     else{
-      alert("tai khoan hoac mat khau khong dung");
+      alert("Tài khoản hoặc mật khẩu không đúng!");
     }
     
   }

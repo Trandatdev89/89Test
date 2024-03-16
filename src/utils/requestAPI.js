@@ -1,4 +1,4 @@
-const API_DOMAIN="http://localhost:3002/";
+const API_DOMAIN="https://eight9test.onrender.com/";
 
 
 export const get=async(path)=>{
