@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+.History{
+    
+    padding: 70px 0;
+    &__table{
+        width: 100%;
+        border: 2px solid #ddd;
+        max-height: 40px;
+        overflow: scroll;
+        text-align: center;
+        td,th{
+            border: 1px solid #ddd;
+        }
+    }
+    &__btn{
+        padding: 5px 20px;
+        background-color: var(--color-two);
+        border-radius: 8px;
+        border: 0;
+        color: #fff;
+    }
+}

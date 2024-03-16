@@ -1,0 +1,36 @@
+.result {
+    padding: 80px 0;
+    &__form {
+        
+    }
+    &__tag {
+        &--true {
+            color: green;
+        }
+        &--false {
+            color: red;
+        }
+    }
+    &__item {
+        
+        &--selected {
+            color: red;
+        }
+        &--result {
+            color: green;
+        }
+        &--margin{
+            margin-bottom: 20px;
+        }
+    }
+    &__type {
+        display: flex;
+        align-items: center;
+    }
+    &__btn{
+        margin-top: 20px;
+        padding: 5px 20px;
+        border-radius:8px;
+        background-color: var(--color-two);
+    }
+}

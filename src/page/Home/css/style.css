@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+.banner {
+  background-image: url(../../../img/blackbg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 100px;
+  padding: 100px 0;
+}
+.banner__title {
+  font-size: 50px;
+  color: #fff;
+  font-weight: 600;
+}
+.banner__desc {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+.banner__learn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.banner__wrap {
+  align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  overflow-y: hidden;
+}
+
+.boxHead {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.boxHead__title {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.boxHead__desc {
+  font-size: 18px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+.button--two {
+  background-color: var(--color-two);
+}
+.button--two:hover {
+  background-color: #fff;
+  color: var(--color-two);
+}
+
+.quiz {
+  background-image: url(../../../img/bgg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 60px;
+}
+.quiz__btn {
+  text-align: center;
+}
+.quiz__btn .btn--one {
+  background-color: var(--color-two);
+  margin: 0 5px;
+}
+.quiz__btn .btn--one:hover {
+  background-color: #fff;
+}
+.quiz__btn .btn--two {
+  background-color: #fff;
+  margin: 0 5px;
+}
+.quiz__btn .btn--two:hover {
+  background-color: var(--color-two);
+}
+
+.usage {
+  padding: 80px 0;
+}
+.usage__box {
+  text-align: center;
+  padding: 30px;
+}
+.usage__icons {
+  height: 80px;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70px;
+  font-size: 30px;
+  color: var(--color-two);
+  background-color: #FFECBA;
+  margin-bottom: 20px;
+}
+
+.practive {
+  background-image: url(../../../img/teamwork.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 100px 0;
+  overflow-y: hidden;
+}
+.practive__wrap {
+  position: relative;
+}
+.practive__box {
+  margin-right: 40px;
+}
+.practive__img1 {
+  aspect-ratio: 16/9;
+}
+.practive__img1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.practive__img2 img {
+  aspect-ratio: 4/3;
+  width: 31%;
+  height: 53%;
+  object-fit: cover;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0px;
+  left: 252px;
+}
+.practive__content {
+  color: #fff;
+  margin-left: 40px;
+}
+.practive__content svg {
+  color: yellow;
+}
+
+.practive::before {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+/*# sourceMappingURL=style.css.map */
