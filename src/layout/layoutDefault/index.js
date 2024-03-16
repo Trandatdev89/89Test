@@ -42,6 +42,9 @@ function LayoutDefault() {
                 <li className="Menu__item">
                   <NavLink to="/topic">Chủ đề</NavLink>
                 </li>
+                <li className="Menu__item"> 
+                   <NavLink to="/usage">Liên hệ</NavLink>
+                </li>
                 <li className="Menu__item">
                   <NavLink to="/blog">Tin tức</NavLink>
                 </li>
@@ -58,18 +61,21 @@ function LayoutDefault() {
                   <NavLink to="/topic">Chủ đề</NavLink>
                 </li>
                 <li className="Menu__item">
-                  <NavLink to="/blog">Về 89test</NavLink>
+                   <NavLink to="/usage">Liên hệ</NavLink>
+                </li>
+                <li className="Menu__item">
+                  <NavLink to="/blog">Tin tức</NavLink>
                 </li>
               </>
             )}
           </ul>
           <div className="layoutDefault__icons">
             {token ? (
-              <Link to="/logout" title="logout">
+              <Link to="/logout" title="Đăng xuất">
                 <MdLogout />
               </Link>
             ) : (
-              <Link to="/login" title="login">
+              <Link to="/login" title="Đăng nhập">
                 <FaUser />
               </Link>
             )}
@@ -78,7 +84,7 @@ function LayoutDefault() {
             {bars ? <IoMdClose /> : <FaBars />}
           </div>
         </header>
-        {bars ? <Bars /> : ""}
+        {bars ? <Bars setBars={setBars}/> : ""}
         <main className="main">
           <Outlet />
         </main>

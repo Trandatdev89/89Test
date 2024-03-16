@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RegisterUser, checkEmail } from "../../components/Services/RegisterUser";
-import { setCookie } from "../../components/helper/cookie";
+import Swal from 'sweetalert2';
 import generateToken from "../../components/helper/generateToken";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
@@ -15,16 +15,31 @@ function Register() {
        option.token=token;
        const checkUser=await checkEmail(option.email);
        if(checkUser.length>0){
-        alert("email này đã tồn tại!");
+        Swal.fire({
+          icon: "error",
+          title: "Email này đã tồn tại",
+          text: "Vui lòng sử dụng email khác để đăng ký!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
        }
        else{
            const res= await RegisterUser(option);
            if(res){
             alert("Bạn đã đăng ký thành công!");
-            navigate("/login");
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Bạn đã đăng ký thành công!",
+              showConfirmButton: false,
+              timer: 1500
+            });
            }
            else{
-            alert("Đăng ký không thành công!")
+            Swal.fire({
+              icon: "error",
+              title: "Đăng ký không thành công",
+              footer: '<a href="#">Why do I have this issue?</a>'
+            });
            }
        }
     }

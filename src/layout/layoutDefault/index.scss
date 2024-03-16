@@ -9,11 +9,14 @@ a{
 
 .layoutDefault{
     &__header{
-        background-color: #ffffffb9;
+        background-color: #fff;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
     }
     .bars{
         display: none;
@@ -135,7 +138,23 @@ a{
         padding:0;
     }
 }
-
+@media (max-width:544px) {
+    .footer{
+        &__input{
+            input{
+                width: 100%;
+                margin-bottom: 10px;
+                border-radius: 8px;
+                
+            }
+        }
+        &__btn{
+            width: 100%;
+            border-radius: 8px;
+            margin-left: 0;
+        }
+    }
+}
 .zone{
     padding: 80px;
     text-align: left;
@@ -154,6 +173,14 @@ a{
         margin: 0 20px;
     }
 
+}
+.bars{
+  &__list{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 80px;
+  }  
 }
 // .main{
 //     padding: 100px 0;

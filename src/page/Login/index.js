@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import { useState} from "react";
 import { ReloadUser } from "../../Actions";
-import Register from "../Register";
+import Swal from 'sweetalert2';
 import logo from "../../img/logo.png";
 function Login() {
   const navigate=useNavigate();
@@ -16,19 +16,30 @@ function Login() {
     //lay ra nhung user de check tai khoan
     const res=await getUser();
     const result=res.find((item)=>item.email===option.email && item.password===option.password);
-    console.log(result);
+    
     if(result){
        //luu du lieu vao trong cookie
+       Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Bạn đã đăng nhập thành công!",
+        showConfirmButton: false,
+        timer: 1500
+      });
        setCookie("id",result.id,1);
        setCookie("fullName",result.fullName,1);
        setCookie("email",result.email,1);
        setCookie("token",result.token,1);
        dispatch(ReloadUser(true));   //gui len store de render lai header khi dang nhap
-       alert("Chúc mừng bạn đã đăng nhập thành công");
        navigate("/");
     }
     else{
-      alert("Tài khoản hoặc mật khẩu không đúng!");
+      Swal.fire({
+        icon: "error",
+        title: "Tài khoản hoặc mật khẩu không đúng",
+        text: "Hãy nhập lại tài khoản!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
     }
     
   }

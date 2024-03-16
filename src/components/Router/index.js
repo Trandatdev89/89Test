@@ -11,6 +11,7 @@ import Result from "../../page/Result";
 import Topic from "../../page/Topic";
 import Blog from "../../page/Blog";
 import Lamlai from "../../page/Lamlai";
+import Usage from "../../page/Usage";
 export const Router=[
     {
         path:"/",
@@ -45,6 +46,10 @@ export const Router=[
             {
                 path:"/logout",
                 element:<Logout/>
+            },
+            {
+                path:"/usage",
+                element:<Usage/>
             },
             {
                 element:<PrivateUser/>,

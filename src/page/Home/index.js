@@ -48,7 +48,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="usage">
+        <div className="usage" id="use">
           <div className="container">
             <div className="row">
               <div className="col-12">
@@ -121,11 +121,11 @@ function Home() {
                   </div>
                 </div>
                 <div className="quiz__btn">
-                  <button className="btn btn--one wow animate__animated animate__backInLeft">
+                  <button className="btn btn--one wow animate__animated animate__backInLeft" style={{margin:"5px"}}>
                     {" "}
                     <Link to={"/topic"}>Thi ngẫu nhiên</Link>
                   </button>
-                  <button className="btn btn--two wow animate__animated animate__backInRight">
+                  <button className="btn btn--two wow animate__animated animate__backInRight" style={{margin:"5px"}}>
                     {" "}
                     <Link to={"/topic"}>Thi theo đề</Link>
                   </button>

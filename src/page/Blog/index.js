@@ -14,7 +14,7 @@ function Blog() {
           <div className="row">
             <div className="col-12">
               <div className="blog__breadcumb">
-                <nav aria-label="breadcrumb" className="mb-3">
+                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                       <a href="/">Trang chủ</a>

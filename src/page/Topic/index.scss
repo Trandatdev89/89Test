@@ -7,6 +7,11 @@
         border-radius: 8px;
         padding: 50px;
     }
+    @media (max-width:991.98px) {
+        &__box{
+            margin-bottom: 20px;
+        }
+    }
     &__img{
         width: 100px;
         height:100px;
