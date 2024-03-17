@@ -68,11 +68,11 @@ function Login() {
             <div className="row">
               <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <label id="email">Nhập Email:</label>
-                <input type="email" className="login__input" name="email" onChange={handleChange}/>
+                <input required type="email" className="login__input" name="email" onChange={handleChange}/>
               </div>
               <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <label>Mật Khẩu:</label>
-                <input type="password" className="login__input" name="password" onChange={handleChange}/>
+                <input required type="password" className="login__input" name="password" onChange={handleChange}/>
               </div>
               <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <button className="login__btn">Login</button>

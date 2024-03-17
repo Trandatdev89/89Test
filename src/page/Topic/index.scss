@@ -42,3 +42,21 @@
         color: var(--color-two);
     }
 }
+
+.loading{
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   border: 5px solid #6a5af9;
+   margin-left: auto;
+   margin-right: auto;
+   border-left: 5px solid transparent;
+   border-right: 5px solid transparent;
+   animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner{
+    to{
+      transform: rotate(360deg);
+    }
+}

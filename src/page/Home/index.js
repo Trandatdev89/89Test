@@ -152,7 +152,7 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://lambanner.com/wp-content/uploads/2018/03/lambanner-thiet-ke-banner-html5.jpg" />
                     </div>
-                    <div className="choice__text">HTML</div>
+                    <div className="choice__text"  style={{marginLeft:"10px"}}>HTML</div>
                   </div>
                   <div className="button button--two">
                     <Link to={"/topic"}>Bắt đầu</Link>
@@ -165,7 +165,7 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png" />
                     </div>
-                    <div className="choice__text">CSS</div>
+                    <div className="choice__text" style={{marginLeft:"10px"}}>CSS</div>
                   </div>
                   <div className="button button--two">
                     {" "}
@@ -179,7 +179,7 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
                     </div>
-                    <div className="choice__text">JavaScript</div>
+                    <div className="choice__text"  style={{marginLeft:"10px"}}>JavaScript</div>
                   </div>
                   <div className="button button--two">
                     {" "}
@@ -193,7 +193,7 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkVEpHdf82WlrIDfTLy3vbDJF0ad9an0AKUw&s" />
                     </div>
-                    <div className="choice__text">Reactjs</div>
+                    <div className="choice__text"  style={{marginLeft:"10px"}}>Reactjs</div>
                   </div>
                   <div className="button button--two">
                     {" "}

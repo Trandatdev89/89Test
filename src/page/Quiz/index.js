@@ -55,7 +55,9 @@ function Quiz() {
   return (
     <>
       <div className="quiz1">
-      <h3 style={{textAlign:"center"}}>Làm bài trắc nghiệm theo chủ đề: {dataTopic && dataTopic.name}</h3>
+      <h3 style={{textAlign:"center",marginTop:"20px"}}>Làm bài trắc nghiệm theo chủ đề: {dataTopic && dataTopic.name}</h3>
+        {dataQuiz.length>0?(
+
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -91,6 +93,9 @@ function Quiz() {
             </div>
           </div>
         </div>
+        ):(
+          <div className="loading"></div>
+        )}
       </div>
       {/* <h3>Lam Bai Trac Nghiem Theo Chu De: {dataTopic && dataTopic.name}</h3>
       <form className="quiz1" onSubmit={handleSubmit}>

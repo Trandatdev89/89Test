@@ -4,6 +4,7 @@ function Usage() {
   return (
     <>
       <div class="Section-night">
+        <h1 style={{textAlign:"center",marginBottom:"20px"}}>Liên hệ với chúng tôi</h1>
         <div class="container">
           <div class="inner-wrap">
             <div class="inner-head">

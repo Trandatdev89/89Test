@@ -54,9 +54,11 @@ function Lamlai() {
   return (
     <>
       <div className="quiz1">
-        <h3 style={{ textAlign: "center" }}>
+        <h3 style={{ textAlign: "center",marginTop:"20px"}}>
           Làm bài trắc nghiệm theo chủ đề: {dataTopic && dataTopic.name}
         </h3>
+        {dataQuiz.length>0?(
+
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -92,6 +94,9 @@ function Lamlai() {
             </div>
           </div>
         </div>
+        ):(
+          <div className="loading"></div>
+        )}
       </div>
     </>
   );

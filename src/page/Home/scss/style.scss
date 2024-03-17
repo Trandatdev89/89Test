@@ -123,7 +123,7 @@ h6 {
     }
 
     &__desc {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 20px;
     }
   }
@@ -158,13 +158,13 @@ h6 {
   background-size: cover;
   padding: 60px;
   margin-bottom: 50px;
-
+  
   &__btn {
     text-align: center;
     @media (max-width:545.98px) {
       .btn {
         &--one {
-         margin-bottom: 10px;
+         margin-bottom: 15px;
         }
       }
     }
@@ -325,7 +325,12 @@ h6 {
     &__box {
        margin-bottom: 20px;
     }
-
+    // &__title{
+    //   -webkit-line-clamp: 0;
+    //   overflow: visible;
+    //   display: -webkit-box;
+    //   -webkit-box-orient: vertical;
+    // }
   }
   &__box {
     border: 1px solid #ddd;
@@ -369,6 +374,13 @@ h6 {
       object-fit: cover;
     }
   }
+  &__title{
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
 
   &__desc {
     -webkit-line-clamp: 3;

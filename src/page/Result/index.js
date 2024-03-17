@@ -42,9 +42,11 @@ function Result() {
   return (
     <>
       <div className="result">
-        <h3 style={{ textAlign: "center",marginBottom:"40px"}}>
+        <h3 style={{ textAlign: "center",margin:"0 20px"}}>
           Làm bài trắc nghiệm theo chủ đề: {dataTopic && dataTopic.name}
         </h3>
+        {dataResult.length>0?(
+
         <div className="container">
         <div style={{marginBottom:"20px"}}>Số câu đúng: <span style={{color:"green"}}>{choiceTrue}</span> |số câu sai:  <span style={{color:"red"}}>{dataResult.length-choiceTrue}</span> |Tổng số câu:<span style={{color:"blue"}}>{dataResult.length}</span> |Tỷ lệ đúng :<span style={{color:"blue"}}>{`${((choiceTrue/dataResult.length)*100).toFixed(1)}%`}</span></div>
           <div className="row">
@@ -96,6 +98,9 @@ function Result() {
             </div>
           </div>
         </div>
+        ):(
+          <div className="loading"></div>
+        )}
       </div>
       {/* <h3>Lam Bai Trac Nghiem Theo Chu De: {dataTopic && dataTopic.name}</h3>
       <div>so cau dung : {choiceTrue} |số câu sai: {dataResult.length-choiceTrue} |Tổng số câu:{dataResult.length} |Tỷ lệ đúng :{`${((choiceTrue/dataResult.length)*100).toFixed(1)}%`}</div>

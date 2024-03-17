@@ -105,9 +105,10 @@ a{
     }
     &__input{
         input{
-            border-radius: 45px;
+            border-radius: 30px;
             padding: 20px;
             width: 60%;
+            outline: none;
         }
         
     }
@@ -122,6 +123,7 @@ a{
         padding: 10px 20px;
         border-radius: 30px;
         margin-left: 10px;
+        outline: none;
         background-image: -webkit-linear-gradient(-30deg, #f57f20, #d62b08 100%);
     }
     @media (max-width:545.98px) {
