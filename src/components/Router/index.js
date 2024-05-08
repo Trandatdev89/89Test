@@ -12,6 +12,8 @@ import Topic from "../../page/Topic";
 import Blog from "../../page/Blog";
 import Lamlai from "../../page/Lamlai";
 import Usage from "../../page/Usage";
+
+
 export const Router=[
     {
         path:"/",

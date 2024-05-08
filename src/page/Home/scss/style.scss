@@ -17,7 +17,7 @@
   padding: 100px 0;
 
   &__title {
-    font-size: 50px;
+    font-size: 40px;
     color: #fff;
     font-weight: 600;
   }
@@ -26,6 +26,7 @@
     font-size: 20px;
     font-weight: 500;
     color: #fff;
+    margin: 20px 0;
   }
 
   &__learn {
@@ -36,9 +37,24 @@
       border-radius: 8px;
     }
   }
-
+   
+  &__btn{
+    &--discover,&--quiz{
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--color-two);
+      color: #fff;
+      &:hover{
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
   &__wrap {
     align-items: center;
+    margin-top: 40px !important;
   }
 
   // End Banner:

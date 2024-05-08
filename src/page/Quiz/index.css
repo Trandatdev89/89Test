@@ -1,0 +1,20 @@
+.quiz1 {
+  padding: 80px 0;
+}
+.quiz1__item {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.quiz1__form {
+  display: flex;
+  align-items: center;
+}
+.quiz1__input {
+  margin-right: 5px;
+}
+.quiz1__btn {
+  margin-top: 20px;
+  padding: 5px 20px;
+  border-radius: 8px;
+  background-color: var(--color-two);
+}/*# sourceMappingURL=index.css.map */

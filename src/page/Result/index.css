@@ -1,0 +1,28 @@
+.result {
+  padding: 80px 0;
+}
+.result__tag--true {
+  color: green;
+}
+.result__tag--false {
+  color: red;
+}
+.result__item--selected {
+  color: red;
+}
+.result__item--result {
+  color: green;
+}
+.result__item--margin {
+  margin-bottom: 20px;
+}
+.result__type {
+  display: flex;
+  align-items: center;
+}
+.result__btn {
+  margin-top: 20px;
+  padding: 5px 20px;
+  border-radius: 8px;
+  background-color: var(--color-two);
+}/*# sourceMappingURL=index.css.map */

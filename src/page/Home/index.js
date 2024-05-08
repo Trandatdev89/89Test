@@ -10,17 +10,16 @@ import blog2 from "../../img/637816143688218111_ad-01-.jpg";
 import blog3 from "../../img/download.png";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
-import WOW from 'wowjs';
+import WOW from "wowjs";
 import { useEffect } from "react";
-import 'animate.css';
+import "animate.css";
 
 function Home() {
- 
   useEffect(() => {
     new WOW.WOW({
-      live: false
+      live: false,
     }).init();
-  }, [])
+  }, []);
   return (
     <>
       <div className="home">
@@ -39,10 +38,22 @@ function Home() {
                     tập, thử thách, không ngại khó!"
                   </p>
                 </div>
+                <div className="banner__btn animate__animated animate__backInLeft">
+                  <Link to="/blog" style={{ textDecoration: "none" }}>
+                    <button className="banner__btn banner__btn--discover">
+                      Khám phá
+                    </button>
+                  </Link>
+                  <Link to="/topic" style={{ textDecoration: "none" }}>
+                    <button className="banner__btn banner__btn--quiz">
+                      Làm ngay
+                    </button>
+                  </Link>
+                </div>
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="banner__learn animate__animated animate__backInRight">
-                  <img src={learn} />
+                  <img src={learn} alt="loading..." />
                 </div>
               </div>
             </div>
@@ -121,11 +132,17 @@ function Home() {
                   </div>
                 </div>
                 <div className="quiz__btn">
-                  <button className="btn btn--one wow animate__animated animate__backInLeft" style={{margin:"5px"}}>
+                  <button
+                    className="btn btn--one wow animate__animated animate__backInLeft"
+                    style={{ margin: "5px" }}
+                  >
                     {" "}
                     <Link to={"/topic"}>Thi ngẫu nhiên</Link>
                   </button>
-                  <button className="btn btn--two wow animate__animated animate__backInRight" style={{margin:"5px"}}>
+                  <button
+                    className="btn btn--two wow animate__animated animate__backInRight"
+                    style={{ margin: "5px" }}
+                  >
                     {" "}
                     <Link to={"/topic"}>Thi theo đề</Link>
                   </button>
@@ -152,7 +169,12 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://lambanner.com/wp-content/uploads/2018/03/lambanner-thiet-ke-banner-html5.jpg" />
                     </div>
-                    <div className="choice__text"  style={{marginLeft:"10px"}}>HTML</div>
+                    <div
+                      className="choice__text"
+                      style={{ marginLeft: "10px" }}
+                    >
+                      HTML
+                    </div>
                   </div>
                   <div className="button button--two">
                     <Link to={"/topic"}>Bắt đầu</Link>
@@ -165,7 +187,12 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png" />
                     </div>
-                    <div className="choice__text" style={{marginLeft:"10px"}}>CSS</div>
+                    <div
+                      className="choice__text"
+                      style={{ marginLeft: "10px" }}
+                    >
+                      CSS
+                    </div>
                   </div>
                   <div className="button button--two">
                     {" "}
@@ -179,7 +206,12 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
                     </div>
-                    <div className="choice__text"  style={{marginLeft:"10px"}}>JavaScript</div>
+                    <div
+                      className="choice__text"
+                      style={{ marginLeft: "10px" }}
+                    >
+                      JavaScript
+                    </div>
                   </div>
                   <div className="button button--two">
                     {" "}
@@ -193,7 +225,12 @@ function Home() {
                     <div className="choice__img">
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkVEpHdf82WlrIDfTLy3vbDJF0ad9an0AKUw&s" />
                     </div>
-                    <div className="choice__text"  style={{marginLeft:"10px"}}>Reactjs</div>
+                    <div
+                      className="choice__text"
+                      style={{ marginLeft: "10px" }}
+                    >
+                      Reactjs
+                    </div>
                   </div>
                   <div className="button button--two">
                     {" "}
