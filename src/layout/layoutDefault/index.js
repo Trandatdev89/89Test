@@ -1,26 +1,28 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../../img/logo.png";
-import { FaUser } from "react-icons/fa";
 import "bootstrap";
-import { MdLogout } from "react-icons/md";
 import "./index.scss";
 import "./base.scss";
-import { getCookie } from "../../components/helper/cookie";
 import { useSelector } from "react-redux";
 import { FaBars } from "react-icons/fa6";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Bars from "./Bars";
+import { isValidToken } from "../../Auth/isValidToken";
+import InfoUser from "../Dropdown/InfoUser";
+import { Button } from "antd";
 
 function LayoutDefault() {
-  const token = getCookie("token");
   const [bars, setBars] = useState(false);
-  const name = getCookie("fullName");
+
+  const isvalid = isValidToken();
+
   const handleClick = () => {
     setBars(!bars);
   };
-  //Render lai header khi login hoac logout:
+
   const reload = useSelector((state) => state.ReducerUser);
+
   return (
     <>
       <div className="layoutDefault">
@@ -31,7 +33,7 @@ function LayoutDefault() {
             </Link>
           </div>
           <ul className="Menu">
-            {token ? (
+            {isvalid ? (
               <>
                 <li className="Menu__item">
                   <NavLink to="/">Trang chủ</NavLink>
@@ -46,7 +48,7 @@ function LayoutDefault() {
                   <NavLink to="/blog">Tin tức</NavLink>
                 </li>
                 <li className="Menu__item">
-                  <NavLink to="/anwser">Lịch sử</NavLink>
+                  <NavLink to="/history">Lịch sử</NavLink>
                 </li>
               </>
             ) : (
@@ -67,21 +69,22 @@ function LayoutDefault() {
             )}
           </ul>
           <div className="layoutDefault__dat">
-            {token&&(<div className="layoutDefault__name" style={{color:"red"}}>Xin chào: {name}</div>)}            
-            <div className="layoutDefault__icons">
-              {token ? (
-                <>
-                  <Link to="/logout" title="Đăng xuất">
-                    <MdLogout />
-                  </Link>
-                </>
-              ) : (
-                <Link to="/login" title="Đăng nhập">
-                  <FaUser />
+            {isvalid ? (
+              <>
+                <InfoUser />
+              </>
+            ) : (
+              <>
+                <Link to="/login" style={{ marginRight: "10px" }}>
+                  <Button type="primary">Đăng nhập</Button>
                 </Link>
-              )}
-            </div>
+                <Link to="/register">
+                  <Button type="primary">Đăng ký</Button>
+                </Link>
+              </>
+            )}
           </div>
+
           <div className="bars" onClick={handleClick}>
             {bars ? <IoMdClose /> : <FaBars />}
           </div>

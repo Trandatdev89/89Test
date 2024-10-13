@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { QuizServices } from "../../components/Services/QuizServices";
-import { get } from "../../utils/requestAPI";
 import "./index.scss";
-import { getCookie } from "../../components/helper/cookie";
-import { createAnswer } from "../../components/Services/AnswerServices";
+import { createAnswer } from "../../Services/AnswerServices";
+import { getTopicById } from "../../Services/TopicServices";
+import { getQuizByTopic } from "../../Services/QuizServices";
+import { jwtDecode } from "jwt-decode";
 function Quiz() {
   const params = useParams();
   const [dataQuiz, setDataQuiz] = useState([]);
   const [dataTopic, setDataTopic] = useState([]);
   const navigate = useNavigate();
+  const token=localStorage.getItem("token");
+
   useEffect(() => {
     const fetchQuiz = async () => {
-      const res = await QuizServices(params.id);
-      const result = await get(`topics/${params.id}`);
+      const res = await getQuizByTopic(params.id,token);
+      const result = await getTopicById(params.id,token);
       //lay ra cau hoi va lay ra chu de cau hoi va ve ra giao dien:
-      setDataTopic(result);
-      setDataQuiz(res);
+
+      setDataTopic(result.data);
+      setDataQuiz(res.data);
     };
     fetchQuiz();
   }, []);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let final = [];
@@ -37,17 +42,18 @@ function Quiz() {
     }
     //tao ra 1 object cac cau cau tra loi cua User:
     let option = {
-      userId: parseInt(getCookie("id")),
+      userId: parseInt(jwtDecode(token).sub),
       topicId: parseInt(params.id),
       answers: final,
     };
 
-    const resultFinal = await createAnswer(option);
-    if (resultFinal) {
+    const resultFinal = await createAnswer(option,token);
+    
+    if (resultFinal.code=== "OK") {
       //lay ra duoc bai lam co id do gui cho result:
-      navigate(`/result/${resultFinal.id}`);
+      navigate(`/result/${params.id}`);
     } else {
-      alert("Nop bai khong thanh cong");
+      alert("Nộp bài không thành công !");
     }
   };
 
@@ -67,7 +73,7 @@ function Quiz() {
                     <div className="quiz1__main">
                       Câu {index + 1}: {item.question}
                     </div>
-                    {item.answers.map((subItem, subIndex) => (
+                    {item.answerQuestion.map((subItem, subIndex) => (
                       <div className="quiz1__form" key={subIndex}>
                         <input
                           type="radio"

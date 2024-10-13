@@ -561,6 +561,7 @@
       "topicId": 3,
       "question": "  Mục đích của JavaScript?",
       "answers": [
+       
         " JavaScript được tạo ra với mục đích xử lý các tác vụ phía Client",
         "JavaScript được tạo ra với mục đích tạo nên tính tương tác cho trang web",
         "Hai phát biểu đểu đúng",
@@ -1694,6 +1695,85 @@
         }
       ],
       "id": 13
+    },
+    {
+      "userId": 2,
+      "topicId": 1,
+      "answers": [
+        {
+          "questionId": 1,
+          "answer": 1
+        },
+        {
+          "questionId": 2,
+          "answer": 1
+        },
+        {
+          "questionId": 3,
+          "answer": 2
+        },
+        {
+          "questionId": 6,
+          "answer": 3
+        },
+        {
+          "questionId": 7,
+          "answer": 1
+        },
+        {
+          "questionId": 8,
+          "answer": 0
+        },
+        {
+          "questionId": 9,
+          "answer": 0
+        },
+        {
+          "questionId": 10,
+          "answer": 0
+        },
+        {
+          "questionId": 11,
+          "answer": 0
+        },
+        {
+          "questionId": 12,
+          "answer": 2
+        },
+        {
+          "questionId": 13,
+          "answer": 1
+        },
+        {
+          "questionId": 14,
+          "answer": 1
+        },
+        {
+          "questionId": 15,
+          "answer": 1
+        },
+        {
+          "questionId": 16,
+          "answer": 2
+        },
+        {
+          "questionId": 17,
+          "answer": 1
+        },
+        {
+          "questionId": 18,
+          "answer": 2
+        },
+        {
+          "questionId": 19,
+          "answer": 2
+        },
+        {
+          "questionId": 20,
+          "answer": 0
+        }
+      ],
+      "id": 14
     }
   ]
 }

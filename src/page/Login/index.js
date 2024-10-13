@@ -1,5 +1,3 @@
-import { setCookie } from "../../components/helper/cookie";
-import { getUser } from "../../components/Services/LoginServices";
 import "./index.scss";
 import { Spin } from "antd";
 import { useDispatch } from "react-redux";
@@ -8,23 +6,21 @@ import { useState } from "react";
 import { ReloadUser } from "../../Actions";
 import Swal from "sweetalert2";
 import logo from "../../img/logo.png";
+import { login } from "../../Services/AuthServices";
 function Login() {
   const navigate = useNavigate();
   const [option, setOption] = useState({});
   const dispatch = useDispatch();
   const [spining, setSpining] = useState(false);
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //lay ra nhung user de check tai khoan
-    setSpining(true);
-    const res = await getUser();
-    const result = res.find(
-      (item) => item.email === option.email && item.password === option.password
-    );
-    
 
-    if (result) {
-      //luu du lieu vao trong cookie
+    setSpining(true);
+    const result=await login(option);
+    
+    if (result.data) {
       setSpining(false);
       Swal.fire({
         position: "top-center",
@@ -33,11 +29,8 @@ function Login() {
         showConfirmButton: false,
         timer: 1500,
       });
-      setCookie("id", result.id, 1);
-      setCookie("fullName", result.fullName, 1);
-      setCookie("email", result.email, 1);
-      setCookie("token", result.token, 1);
-      dispatch(ReloadUser(true)); //gui len store de render lai header khi dang nhap
+      localStorage.setItem("token", result.data.token);
+      dispatch(ReloadUser(true));
       navigate("/");
     } else {
       setSpining(false);
@@ -68,19 +61,19 @@ function Login() {
           <img src={logo} alt="logo" />
         </div>
         <h2 style={{ textAlign: "center" }} className="login__title">
-          Đăng nhập tài khoản
+          Đăng nhập 
         </h2>
         <Spin spinning={spining} tip="Đang đăng nhập">
           <form className="login__form" onSubmit={handleSubmit}>
             <div className="container">
               <div className="row">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <label id="email">Nhập Email:</label>
+                  <label id="email">Nhập Username:</label>
                   <input
                     required
-                    type="email"
+                    type="text"
                     className="login__input"
-                    name="email"
+                    name="username"
                     onChange={handleChange}
                   />
                 </div>

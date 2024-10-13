@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react";
-import { get } from "../../utils/requestAPI";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
-import Skeleton from "react-loading-skeleton";
-import anh1 from "../../img/lambanner-thiet-ke-banner-html5.jpg";
-import anh2 from "../../img/logo-2582747_1280.webp";
-import anh3 from "../../img/JavaScript-logo.png";
-import anh4 from "../../img/images.png";
+import { getTopics } from "../../Services/TopicServices";
 
 function Topic() {
   const [topic, setTopic] = useState([]);
   const navigate = useNavigate();
+  const token=localStorage.getItem("token");
+
   useEffect(() => {
     const fetchAPI = async () => {
-      const res = await get("topics");
-
-      setTopic(res);
+      const res = await getTopics(token);
+      setTopic(res.data);
     };
     fetchAPI();
   }, []);
   const handleClick = (id) => {
     navigate(`/quiz/${id}`);
   };
-  const list = [anh1, anh2, anh3, anh4];
+ 
   return (
     <>
       <div className="topic">
@@ -40,7 +36,7 @@ function Topic() {
                   >
                     <div className="topic__box">
                       <div className="topic__img">
-                        <img src={list[index]} alt="mota" />
+                        <img src={item.thumnail} alt="mota" />
                       </div>
                       <div className="topic__name">{item.name}</div>
                       <button
@@ -62,25 +58,6 @@ function Topic() {
           </>
         )}
       </div>
-      {/* <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {topic.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>
-                <button onClick={()=>handleClick(item.id)}>Lam bai</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
     </>
   );
 }

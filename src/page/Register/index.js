@@ -1,30 +1,30 @@
 import { useState } from "react";
-import { RegisterUser, checkEmail } from "../../components/Services/RegisterUser";
 import Swal from 'sweetalert2';
-import generateToken from "../../components/helper/generateToken";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import logo from "../../img/logo.png";
+import { register } from "../../Services/AuthServices";
 
 function Register() {
     const [option,setOption]=useState({});
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+
+
     const handleSubmit=  async(e)=>{
        e.preventDefault();
-       const token=generateToken();
-       option.token=token;
-       const checkUser=await checkEmail(option.email);
-       if(checkUser.length>0){
+       
+       const res = await register(option);
+       console.log(res);
+       if(res.data == null && res.code === "BAD_REQUEST"){
         Swal.fire({
           icon: "error",
-          title: "Email này đã tồn tại",
+          title: `${res.message} .Hay đăng ký với username khác`,
           text: "Vui lòng sử dụng email khác để đăng ký!",
           footer: '<a href="#">Why do I have this issue?</a>'
         });
        }
        else{
-           const res= await RegisterUser(option);
-           if(res){
+           if(res.code === "OK"){
             alert("Bạn đã đăng ký thành công!");
             Swal.fire({
               position: "top-center",
@@ -33,11 +33,12 @@ function Register() {
               showConfirmButton: false,
               timer: 1500
             });
+            navigate("/login");
            }
            else{
             Swal.fire({
               icon: "error",
-              title: "Đăng ký không thành công",
+              title: `${res.message}`,
               footer: '<a href="#">Why do I have this issue?</a>'
             });
            }
@@ -65,13 +66,25 @@ function Register() {
           <div className="container">
             <div className="row">
             <div className="col-12">
-                <label className="form-label" htmlFor="name">
+                <label className="form-label" htmlFor="fullname">
                    Tên đầy đủ:
                 </label>
                 <input
                   className="form-control"
                   id="name"
-                  name="fullName"
+                  name="fullname"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="col-12">
+                <label className="form-label" htmlFor="username">
+                   Username:
+                </label>
+                <input
+                  className="form-control"
+                  id="username"
+                  name="username"
                   onChange={handleChange}
                   required
                 />
@@ -100,7 +113,17 @@ function Register() {
                   required
                 />
               </div>
-              
+              <div className="col-12">
+                <label className="form-label" htmlFor="birth">Ngày sinh:</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="birth"
+                  name="birth"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
               <div className="col-12">
                 <button className="mt-3 register__btn">Đăng ký</button>
               </div>
