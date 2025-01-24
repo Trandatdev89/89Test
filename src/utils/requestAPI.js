@@ -1,4 +1,4 @@
-const API_DOMAIN="http://localhost:8080/";
+const API_DOMAIN="https://eight9test-backend.onrender.com/";
 
 export const get=async(path)=>{
     const response=await fetch(API_DOMAIN+path);

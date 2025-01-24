@@ -1,6 +1,6 @@
 import "./index.scss";
 import { Spin } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ReloadUser } from "../../Actions";
@@ -12,8 +12,8 @@ function Login() {
   const [option, setOption] = useState({});
   const dispatch = useDispatch();
   const [spining, setSpining] = useState(false);
+  const reload = useSelector((state) => state.ReducerUser);
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,7 +30,7 @@ function Login() {
         timer: 1500,
       });
       localStorage.setItem("token", result.data.token);
-      dispatch(ReloadUser(true));
+      dispatch(ReloadUser(!reload));
       navigate("/");
     } else {
       setSpining(false);

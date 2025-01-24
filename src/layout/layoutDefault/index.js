@@ -14,15 +14,17 @@ import { Button } from "antd";
 
 function LayoutDefault() {
   const [bars, setBars] = useState(false);
-
+ 
   const isvalid = isValidToken();
+
+  console.log(isvalid);
 
   const handleClick = () => {
     setBars(!bars);
   };
 
   const reload = useSelector((state) => state.ReducerUser);
-
+  console.log(reload);
   return (
     <>
       <div className="layoutDefault">

@@ -7,7 +7,7 @@ import { Button } from "antd";
 
 export default function Header() {
   const isToken = isValidToken();
-
+  console.log(isToken);
   return (
     <header className="layoutDefault__header">
       <div className="layoutDefault__logo">

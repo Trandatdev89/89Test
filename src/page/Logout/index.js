@@ -20,7 +20,6 @@ function Logout(){
         const token=localStorage.getItem("token");
         const res = await logoutServices(token);
         localStorage.removeItem("token");
-        sessionStorage.removeItem("hasReloaded");
         dispatch(ReloadUser(!reload));
         navigate("/login");
       };
