@@ -18,7 +18,7 @@ function Topic() {
   const handleClick = (id) => {
     navigate(`/quiz/${id}`);
   };
- 
+
   return (
     <>
       <div className="topic">
@@ -36,7 +36,7 @@ function Topic() {
                   >
                     <div className="topic__box">
                       <div className="topic__img">
-                        <img src={item.thumnail} alt="mota" />
+                        <img src={item?.thumnail} alt="mota" />
                       </div>
                       <div className="topic__name">{item.name}</div>
                       <button
